@@ -22,13 +22,6 @@ Bulanık mantık (fuzzy logic) kullanarak lastik bakım önceliğini ve değişi
   - 📊 Değişim İhtimali (%)
 - Detaylı matematiksel rapor üretimi
 
-  📊 Matematiksel Model
-Üyelik Fonksiyonları
-Parametre	Aralık	Düşük	Orta	Yüksek
-Yol Sertliği	0-10	0-5 (μ=0.0)	4-8 (μ=0.75)	7-10 (μ=0.4)
-Ortalama Hız	0-160 km/s	0-80 (μ=0.0)	60-140 (μ=0.25)	100+ (μ=0.33)
-
-
 ## 🛠️ Kurulum
 
 ### Gereksinimler
@@ -40,3 +33,10 @@ git clone https://github.com/mertbilger/Tire-Maintenance-Analysis-System.git
 ## ÖNEMLİ
 ```bash
 pip install -r requirements.txt
+# Üyelik fonksiyonları örneği
+temperature['low'] = fuzz.trimf(temperature.universe, [10, 10, 22])
+temperature['medium'] = fuzz.trimf(temperature.universe, [18, 25, 32])
+temperature['high'] = fuzz.trimf(temperature.universe, [28, 40, 40])
+
+# Örnek kural
+rule1 = ctrl.Rule(temperature['high'] | noise['high'], ac_level['high'])
