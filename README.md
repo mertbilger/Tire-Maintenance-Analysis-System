@@ -39,7 +39,8 @@ Proje, lastik bakım yönetiminde bulanık mantık yaklaşımını uygulamaktad�
  
 ## 🧠 Bulanık Mantık Temelleri
 
-#### Proje, Zadeh (1965) tarafından geliştirilen bulanık mantık teorisine dayanmaktadır:
+### Proje, Zadeh (1965) tarafından geliştirilen bulanık mantık teorisine dayanmaktadır:
+
 
 1. **Bulanıklaştırma**: Kesin değerlerin üyelik fonksiyonlarıyla bulanık kümeler halinde ifadesi
    - Örneğin: "Yol sertliği 7 → %40 yüksek, %60 orta"
@@ -67,6 +68,8 @@ Proje, lastik bakım yönetiminde bulanık mantık yaklaşımını uygulamaktad�
 git clone https://github.com/mertbilger/Tire-Maintenance-Analysis-System.git
 cd Tire-Maintenance-Analysis-System
 ```
+##ÖNEMLİ
+
 2. Gerekli Kütüphaneleri Yükleyin
 ```bash
 pip install -r requirements.txt
@@ -74,7 +77,10 @@ pip install -r requirements.txt
 🖥️ Kullanım
 
 1.Uygulamayı başlatın
+
 2.Arayüzde tüm parametreleri girin
+
 3.Hesapla" butonuna basın
+
 4.Sonuçları ve grafikleri görüntüleyin
 
