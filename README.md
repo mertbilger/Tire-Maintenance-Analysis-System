@@ -36,6 +36,23 @@ Proje, lastik bakım yönetiminde bulanık mantık yaklaşımını uygulamaktad�
   - Tkinter tabanlı modern GUI
   - Kolay parametre girişi
   - Anlık sonuç görüntüleme
+ 
+## 🧠 Bulanık Mantık Temelleri
+
+####Proje, Zadeh (1965) tarafından geliştirilen bulanık mantık teorisine dayanmaktadır:
+
+1. **Bulanıklaştırma**: Kesin değerlerin üyelik fonksiyonlarıyla bulanık kümeler halinde ifadesi
+   - Örneğin: "Yol sertliği 7 → %40 yüksek, %60 orta"
+
+2. **Kural Tabanı**: 8 adet uzman kuralı içerir
+
+3. **Çıkarım Mekanizması**: Mamdani tipi bulanık çıkarım sistemi
+
+4. **Durulaştırma**: Centroid yöntemi ile net değer hesaplama
+
+```bash
+[Girdi Parametreleri] → [Bulanıklaştırma] → [Kural Değerlendirme] → [Durulaştırma] → [Çıktılar]
+```
 
 ## 🛠️ Kurulum
 
@@ -54,3 +71,10 @@ cd Tire-Maintenance-Analysis-System
 ```bash
 pip install -r requirements.txt
 ```
+🖥️ Kullanım
+
+1.Uygulamayı başlatın
+2.Arayüzde tüm parametreleri girin
+3.Hesapla" butonuna basın
+4.Sonuçları ve grafikleri görüntüleyin
+
