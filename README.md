@@ -74,7 +74,7 @@ cd Tire-Maintenance-Analysis-System
 ```bash
 pip install -r requirements.txt
 ```
-🖥️ Kullanım
+## 🖥️ Kullanım
 
 1.Uygulamayı başlatın
 
