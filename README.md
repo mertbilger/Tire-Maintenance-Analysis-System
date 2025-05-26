@@ -1,4 +1,4 @@
-# 🚗 Lastik Bakım Öncelik Analiz Sistemi
+# 🚗 Lastik Bakım Analiz Sistemi
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![Fuzzy](https://img.shields.io/badge/Fuzzy%20Logic-scikit--fuzzy-green)
