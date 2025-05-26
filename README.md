@@ -39,7 +39,7 @@ Proje, lastik bakım yönetiminde bulanık mantık yaklaşımını uygulamaktad�
  
 ## 🧠 Bulanık Mantık Temelleri
 
-####Proje, Zadeh (1965) tarafından geliştirilen bulanık mantık teorisine dayanmaktadır:
+#### Proje, Zadeh (1965) tarafından geliştirilen bulanık mantık teorisine dayanmaktadır:
 
 1. **Bulanıklaştırma**: Kesin değerlerin üyelik fonksiyonlarıyla bulanık kümeler halinde ifadesi
    - Örneğin: "Yol sertliği 7 → %40 yüksek, %60 orta"
