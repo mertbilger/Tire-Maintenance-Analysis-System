@@ -22,6 +22,13 @@ Bulanık mantık (fuzzy logic) kullanarak lastik bakım önceliğini ve değişi
   - 📊 Değişim İhtimali (%)
 - Detaylı matematiksel rapor üretimi
 
+  📊 Matematiksel Model
+Üyelik Fonksiyonları
+Parametre	Aralık	Düşük	Orta	Yüksek
+Yol Sertliği	0-10	0-5 (μ=0.0)	4-8 (μ=0.75)	7-10 (μ=0.4)
+Ortalama Hız	0-160 km/s	0-80 (μ=0.0)	60-140 (μ=0.25)	100+ (μ=0.33)
+
+
 ## 🛠️ Kurulum
 
 ### Gereksinimler
