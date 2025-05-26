@@ -92,35 +92,43 @@ class TireMaintenanceApp:
         self.rules = [
             {
                 'rule': ctrl.Rule(self.usage_time['high'] & self.road_type['hard'], self.maintenance_priority['high']),
-                'desc': "Eğer kullanım süresi yüksek VE yol sert ise, bakım önceliği yüksektir."
+                'desc': "Eğer kullanım süresi yüksek VE yol sert ise, bakım önceliği yüksektir.",
+                'weight': 1.0
             },
             {
                 'rule': ctrl.Rule(self.usage_time['medium'] & self.road_type['medium'], self.maintenance_priority['medium']),
-                'desc': "Eğer kullanım süresi orta VE yol orta sertlikte ise, bakım önceliği ortadır."
+                'desc': "Eğer kullanım süresi orta VE yol orta sertlikte ise, bakım önceliği ortadır.",
+                'weight': 1.0
             },
             {
                 'rule': ctrl.Rule(self.usage_time['low'] & self.road_type['soft'], self.maintenance_priority['low']),
-                'desc': "Eğer kullanım süresi düşük VE yol yumuşak ise, bakım önceliği düşüktür."
+                'desc': "Eğer kullanım süresi düşük VE yol yumuşak ise, bakım önceliği düşüktür.",
+                'weight': 1.0
             },
             {
                 'rule': ctrl.Rule(self.average_speed['fast'] | self.temperature['hot'] | self.tire_pressure['low'], self.change_probability['high']),
-                'desc': "Eğer ortalama hız yüksek VEYA sıcaklık yüksek VEYA lastik basıncı düşük ise, değişim ihtimali yüksektir."
+                'desc': "Eğer ortalama hız yüksek VEYA sıcaklık yüksek VEYA lastik basıncı düşük ise, değişim ihtimali yüksektir.",
+                'weight': 1.0
             },
             {
                 'rule': ctrl.Rule(self.average_speed['moderate'] & self.tire_pressure['optimal'], self.change_probability['medium']),
-                'desc': "Eğer ortalama hız orta VE lastik basıncı optimal ise, değişim ihtimali ortadır."
+                'desc': "Eğer ortalama hız orta VE lastik basıncı optimal ise, değişim ihtimali ortadır.",
+                'weight': 1.0
             },
             {
                 'rule': ctrl.Rule(self.average_speed['slow'] & self.tire_pressure['optimal'], self.change_probability['low']),
-                'desc': "Eğer ortalama hız düşük VE lastik basıncı optimal ise, değişim ihtimali düşüktür."
+                'desc': "Eğer ortalama hız düşük VE lastik basıncı optimal ise, değişim ihtimali düşüktür.",
+                'weight': 1.0
             },
             {
                 'rule': ctrl.Rule(self.temperature['cold'] & self.tire_pressure['high'], self.maintenance_priority['medium']),
-                'desc': "Eğer sıcaklık düşük VE lastik basıncı yüksek ise, bakım önceliği ortadır."
+                'desc': "Eğer sıcaklık düşük VE lastik basıncı yüksek ise, bakım önceliği ortadır.",
+                'weight': 1.0
             },
             {
                 'rule': ctrl.Rule(self.usage_time['high'] & self.tire_pressure['low'], self.change_probability['high']),
-                'desc': "Eğer kullanım süresi yüksek VE lastik basıncı düşük ise, değişim ihtimali yüksektir."
+                'desc': "Eğer kullanım süresi yüksek VE lastik basıncı düşük ise, değişim ihtimali yüksektir.",
+                'weight': 1.0
             }
         ]
         
@@ -218,7 +226,7 @@ class TireMaintenanceApp:
         
         # Açıklama
         ttk.Label(self.output_frame, text="Sonuç Açıklaması:", style='H2.TLabel').grid(row=3, column=0, sticky=tk.W, pady=5)
-        self.result_explanation = tk.Text(self.output_frame, height=8, width=40, wrap=tk.WORD, font=('Helvetica', 9))
+        self.result_explanation = tk.Text(self.output_frame, height=15, width=60, wrap=tk.WORD, font=('Helvetica', 9))
         self.result_explanation.grid(row=4, column=0, columnspan=2, sticky=tk.W+tk.E, pady=5)
         
         # Grafik butonları
@@ -232,7 +240,7 @@ class TireMaintenanceApp:
         self.graph_frame = ttk.Frame(self.root, style='Graph.TFrame', padding="10")
         self.graph_frame.pack(fill=tk.BOTH, expand=True)
         
-        self.figure = Figure(figsize=(10, 4), dpi=100)
+        self.figure = Figure(figsize=(20, 10), dpi=100)
         self.canvas = FigureCanvasTkAgg(self.figure, master=self.graph_frame)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
         
@@ -449,17 +457,17 @@ class TireMaintenanceApp:
     def show_rules(self):
         top = tk.Toplevel(self.root)
         top.title("Kurallar ve Açıklamaları")
-        top.geometry("800x600")
+        top.geometry("1200x900")
         
-        frame = ttk.Frame(top)
-        frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+        main_frame = ttk.Frame(top)
+        main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
         # Başlık
-        ttk.Label(frame, text="Fuzzy Mantık Kuralları", style='H1.TLabel').pack(pady=10)
+        ttk.Label(main_frame, text="Fuzzy Mantık Kuralları", style='H1.TLabel').pack(pady=10)
         
-        # Kurallar için canvas ve scrollbar
-        canvas = tk.Canvas(frame)
-        scrollbar = ttk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+        # Canvas ve Scrollbar oluştur
+        canvas = tk.Canvas(main_frame)
+        scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
         
         scrollable_frame.bind(
@@ -475,19 +483,33 @@ class TireMaintenanceApp:
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
         
-        # Kuralları ekle
+        # Kuralları ekleme
         for i, rule in enumerate(self.rules):
             rule_frame = ttk.Frame(scrollable_frame, relief=tk.RAISED, borderwidth=1, padding=10)
-            rule_frame.pack(fill=tk.X, pady=5)
+            rule_frame.pack(fill=tk.X, pady=5, padx=5)
             
+            # Kural numarası
             ttk.Label(rule_frame, text=f"Kural {i+1}:", style='H2.TLabel').grid(row=0, column=0, sticky=tk.W)
-            ttk.Label(rule_frame, text=str(rule['rule']), wraplength=600, justify=tk.LEFT).grid(row=1, column=0, sticky=tk.W, pady=5)
-            ttk.Label(rule_frame, text="Açıklama:", style='H2.TLabel').grid(row=2, column=0, sticky=tk.W, pady=(10, 0))
-            ttk.Label(rule_frame, text=rule['desc'], wraplength=600, justify=tk.LEFT).grid(row=3, column=0, sticky=tk.W)
             
-            # Ağırlık bilgisi
-            ttk.Label(rule_frame, text=f"Kural Ağırlığı: {rule['rule'].weight:.1f}").grid(row=4, column=0, sticky=tk.W, pady=(10, 0))
-
+            # Kural ifadesi
+            ttk.Label(rule_frame, text=str(rule['rule']), wraplength=1000, justify=tk.LEFT).grid(
+                row=1, column=0, sticky=tk.W, pady=5)
+            
+            # Açıklama başlığı
+            ttk.Label(rule_frame, text="Açıklama:", style='H2.TLabel').grid(
+                row=2, column=0, sticky=tk.W, pady=(10, 0))
+            
+            # Açıklama metni
+            ttk.Label(rule_frame, text=rule['desc'], wraplength=1000, justify=tk.LEFT).grid(
+                row=3, column=0, sticky=tk.W)
+                                    
+            # Grid yapılandırması
+            rule_frame.grid_columnconfigure(0, weight=1)
+        
+        # Scrollable frame'i güncelle
+        scrollable_frame.update_idletasks()
+        canvas.config(scrollregion=canvas.bbox("all"))
+    
 if __name__ == "__main__":
     check_dependencies()
     root = tk.Tk()
