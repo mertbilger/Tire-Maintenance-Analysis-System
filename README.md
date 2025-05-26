@@ -27,6 +27,9 @@ Bulanık mantık (fuzzy logic) kullanarak lastik bakım önceliğini ve değişi
 ### Gereksinimler
 - Python 3.8+
 - Gerekli kütüphaneler:
+```bash
+git clone https://github.com/mertbilger/Tire-Maintenance-Analysis-System.git
 
+## ÖNEMLİ
 ```bash
 pip install -r requirements.txt
