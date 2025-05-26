@@ -7,6 +7,8 @@
 
 Bulanık mantık (fuzzy logic) kullanarak araç lastiklerinin bakım önceliğini ve değişim ihtimalini hesaplayan Python tabanlı gelişmiş analiz uygulaması.
 
+### Proje, Zadeh (1965) tarafından geliştirilen bulanık mantık teorisine dayanmaktadır:
+
 
 ## 📚 Teorik Temeller
 
@@ -38,8 +40,6 @@ Proje, lastik bakım yönetiminde bulanık mantık yaklaşımını uygulamaktad�
   - Anlık sonuç görüntüleme
  
 ## 🧠 Bulanık Mantık Temelleri
-
-### Proje, Zadeh (1965) tarafından geliştirilen bulanık mantık teorisine dayanmaktadır:
 
 
 1. **Bulanıklaştırma**: Kesin değerlerin üyelik fonksiyonlarıyla bulanık kümeler halinde ifadesi
