@@ -49,6 +49,8 @@ Proje, lastik bakım yönetiminde bulanık mantık yaklaşımını uygulamaktad�
 ```bash
 git clone https://github.com/mertbilger/Tire-Maintenance-Analysis-System.git
 cd Tire-Maintenance-Analysis-System
-
+```
 2. Gerekli Kütüphaneleri Yükleyin
+```bash
 pip install -r requirements.txt
+```
